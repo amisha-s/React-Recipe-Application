@@ -17,6 +17,7 @@ const App=()=>{
     <BrowserRouter>
     <div className="min-h-screen bg-gray-950 font-sans text-gray-100">
       <Navbar/>
+      <Cuisine/>
     <Routes>
       <Route path="/" element={<HomeView/>}></Route>
     </Routes>
