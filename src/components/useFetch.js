@@ -1,46 +1,32 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
-export const API_URL="www.themealdb.com/api/json/v1/1/";
+export const API_URL = "https://www.themealdb.com/api/json/v1/1/";
 
-export const useFetch = () => {
-    const [data,setData]=useEffect(null);
-    const [loading,setLoading]=useEffect(true);
-    const [error,setError]=useState(null);
+export function useFetch(url) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    useEffect(() => {
-        try{
-        if(!url){
+  useEffect(() => {
+    if (!url) {
+      setLoading(false);
+      return;
+    }
+
+    async function fetchData() {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Error: ${response.status}`);
+        setData(await response.json());
+      } catch (error) {
+        setError(error);
+      } finally {
         setLoading(false);
-        return ;
-        }
-    const fetchData=async()=>{
-        const res=await fetch(url);
-        if(!res.ok) throw new Error(`Error: ${res.status}`);
-
-        const json=res.json();
-        setData(json);
+      }
     }
+
     fetchData();
-    }
-        catch(e){
-            setError(e.message);
-        }finally{
-            setLoading(false);
-        }
-    
-     
+  }, [url]);
 
-    }, [url])
-    
-    
-
-
-
-  return (
-    <div>
-      
-    </div>
-  )
+  return { data, loading, error };
 }
-
-export default useFetch
