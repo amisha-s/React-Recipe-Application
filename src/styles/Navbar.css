@@ -1,0 +1,13 @@
+.navbar{
+    position: sticky;
+    top:0;
+    z-index: 50;
+    background-color: rgba(3, 7, 18, 0.5);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+    border-bottom: 1px solid
+  color-mix(in oklab, oklch(37.9% 0.146 265.522) 50%, transparent);
+
+}
