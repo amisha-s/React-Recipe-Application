@@ -8,7 +8,9 @@ const Navbar = () => {
   const [input,setInput]=useState();
   const handleSearch=(e)=>{
     e.preventDefault();
-    console.log("Searching...")
+    console.log("Searching...");
+      setInput();
+    
 
   }
 
