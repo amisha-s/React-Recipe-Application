@@ -2,14 +2,21 @@ import React, { useState } from "react";
 import { Search, Zap } from "lucide-react";
 import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
-const Navbar = () => {
+const Navbar = ({handleSearch}) => {
   const [input,setInput]=useState();
-  const handleSearch=(e)=>{
+  const navigate=useNavigate();
+  const searchHandler=(e)=>{
     e.preventDefault();
-    console.log("Searching...");
-      setInput();
+    
+    if (input.trim()){
+      handleSearch(input.trim());
+      navigate(`search/${input}`)
+      setInput("");
+    }
+     
     
 
   }
@@ -26,7 +33,7 @@ const Navbar = () => {
               <Zap className="w-7 h-7 mr-2 text-yellow-400 fill-yellow-400/20" />
               <span className="text-blue-400">Pro</span>Chef
             </Link>
-            <form className="flex-1 max-w-lg mx-4 hidden sm:flex" onSubmit={handleSearch}>
+            <form className="flex-1 max-w-lg mx-4 hidden sm:flex" onSubmit={searchHandler}>
               <input
                 type="text"
                 value={input}
