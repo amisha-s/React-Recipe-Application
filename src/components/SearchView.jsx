@@ -4,7 +4,7 @@ import { ChevronLeft,Loader } from 'lucide-react'
 import RecipeCard from './RecipeCard'
 
 const SearchView = ({meal,loading}) => {
-  console.log(meal)
+  // console.log(meal)
   return (
    <>
     <main className="m-auto px-4 sm:px-6 lg:px-8 py-8">

@@ -1,7 +1,8 @@
 import React from "react";
 import { Globe } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const Cuisines = () => {
+const Cuisines = ({filterByArea}) => {
   const featuredAreas = [
     "American",
     "British",
@@ -13,6 +14,7 @@ const Cuisines = () => {
     "Russian",
     "Thai",
   ];
+  
   return (
     <>
       <div className="bg-gray-900/80 border-b border-y-gray-800 shadow-inner shadow-black/20">
@@ -24,15 +26,16 @@ const Cuisines = () => {
             </div>
             {featuredAreas.map((area) => {
               return (
-                <button
+                <Link to={`search/${area}`}
                   key={area}
+                  onClick={()=>filterByArea(area)}
                  className="cursor-pointer text-gray-200 text-sm whitespace-nowrap font-medium
   hover:text-white transition duration-300 py-1.5 px-1.5 rounded-full
   bg-gray-800 border border-gray-700 hover:bg-blue-600 hover:shadow-lg
   hover:shadow-blue-800/50 hover:scale-105"
                 >
                   {area}
-                </button>
+                </Link>
               );
             })}
           </div>

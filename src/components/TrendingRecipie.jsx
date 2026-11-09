@@ -8,7 +8,7 @@ const SlickSlider = Slider.default ?? Slider;
 
 const TrendingSlider = ({ title, fetchUrl }) => {
   const { data, loading, error } = useFetch(fetchUrl);
-  console.log(data?.meals);
+  // console.log(data?.meals);
   const meals = data?.meals || [];
   const settings = {
     dots: true,
@@ -20,7 +20,7 @@ const TrendingSlider = ({ title, fetchUrl }) => {
     autoplaySpeed: 2000,
     cssEase: "linear",
   };
-  console.log({ Slider, Clock, RecipeCard });
+  // console.log({ Slider, Clock, RecipeCard });
   if (loading) {
     return (
       <div className="text-center p-8 text-gray-300">
