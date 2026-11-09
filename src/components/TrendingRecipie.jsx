@@ -3,6 +3,7 @@ import { useFetch } from "./useFetch";
 import RecipeCard from "../components/RecipeCard";
 import Slider from "react-slick";
 import { Clock, Loader } from "lucide-react";
+import { Link } from "react-router-dom";
 const SlickSlider = Slider.default ?? Slider;
 
 const TrendingSlider = ({ title, fetchUrl }) => {
@@ -46,6 +47,7 @@ const TrendingSlider = ({ title, fetchUrl }) => {
         <SlickSlider {...settings}>
           {meals.map((meal) => {
             return (
+              <Link to={`element/${meal.idMeal}`}>
               <div key={meal.idMeal} className="px-10 flex justify-center">
                 <div
                   className="relative bg-gray-900 rounded-xl shadow-xl shadow-black/50 group
@@ -65,6 +67,7 @@ const TrendingSlider = ({ title, fetchUrl }) => {
                  
                 </div>
               </div>
+              </Link>
             );
           })}
         </SlickSlider>

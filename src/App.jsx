@@ -20,6 +20,7 @@ const App=()=>{
       <Cuisine/>
     <Routes>
       <Route path="/" element={<HomeView/>}></Route>
+       <Route path="/element/:id" element={<RecipieDetailView/>}></Route>
     </Routes>
     </div>
     </BrowserRouter>

@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const RecipeCard = ({ meal }) => {
   return (
+    <Link to={`element/${meal.idMeal}`}>
     <div
       className="relative bg-gray-900 rounded-xl shadow-xl shadow-black/50 group
     overflow-hidden transform duration-500 cursor-pointer border border-gray-800 hover:shadow-blue-600/50 "
@@ -22,6 +24,7 @@ const RecipeCard = ({ meal }) => {
         <h3 className="text-xl pb-3 font-bold text-gray-100 mb-1 group-hover:text-blue-400 transition duration-300 text-wrap!">{meal.strMeal}</h3>
       </div>
     </div>
+    </Link>
   );
 };
 
